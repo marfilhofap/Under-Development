@@ -1,51 +1,203 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Under Development</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Under Development</title>
 
-    <!-- Bootstrap 5 -->
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+<!-- Bootstrap 5 -->
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
 
-    <style>
-        body{
-            height:100vh;
-            display:flex;
-            justify-content:center;
-            align-items:center;
-            background:#f8f9fa;
+<!-- Bootstrap Icons -->
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+
+<style>
+    body{
+        min-height:100vh;
+        display:flex;
+        justify-content:center;
+        align-items:center;
+        overflow:hidden;
+        font-family: Arial, sans-serif;
+
+        background: linear-gradient(
+        135deg,
+        #0d6efd,
+        #4f46e5,
+        #7c3aed
+        );
+
+        background-size:400% 400%;
+        animation: gradientMove 10s ease infinite;
+        position:relative;
+    }
+
+    @keyframes gradientMove{
+        0%{background-position:0% 50%;}
+        50%{background-position:100% 50%;}
+        100%{background-position:0% 50%;}
+    }
+
+    /* Background circles */
+    .circle{
+        position:absolute;
+        border-radius:50%;
+        background:rgba(255,255,255,.1);
+        backdrop-filter: blur(5px);
+    }
+
+    .c1{
+        width:250px;
+        height:250px;
+        top:-80px;
+        left:-80px;
+    }
+
+    .c2{
+        width:350px;
+        height:350px;
+        bottom:-120px;
+        right:-120px;
+    }
+
+    .c3{
+        width:120px;
+        height:120px;
+        top:25%;
+        right:15%;
+    }
+
+    .dev-card{
+        width:90%;
+        max-width:650px;
+        padding:50px;
+        border-radius:30px;
+
+        background:rgba(255,255,255,.15);
+        border:1px solid rgba(255,255,255,.2);
+
+        backdrop-filter: blur(15px);
+
+        box-shadow:
+        0 8px 32px rgba(0,0,0,.2);
+
+        color:white;
+        z-index:2;
+
+        animation:fadeUp 1s ease;
+    }
+
+    @keyframes fadeUp{
+        from{
+            opacity:0;
+            transform:translateY(40px);
         }
+        to{
+            opacity:1;
+            transform:translateY(0);
+        }
+    }
+
+    .icon-box{
+        width:90px;
+        height:90px;
+        margin:auto;
+        border-radius:50%;
+
+        display:flex;
+        align-items:center;
+        justify-content:center;
+
+        background:rgba(255,255,255,.2);
+
+        font-size:40px;
+        margin-bottom:20px;
+
+        animation: pulse 2s infinite;
+    }
+
+    @keyframes pulse{
+        0%{
+            transform:scale(1);
+        }
+        50%{
+            transform:scale(1.08);
+        }
+        100%{
+            transform:scale(1);
+        }
+    }
+
+    .badge-dev{
+        background:rgba(255,255,255,.2);
+        padding:8px 18px;
+        border-radius:30px;
+        display:inline-block;
+        margin-bottom:15px;
+    }
+
+    h1{
+        font-weight:700;
+        margin-bottom:15px;
+    }
+
+    .btn-custom{
+        border-radius:50px;
+        padding:12px 30px;
+        font-weight:bold;
+    }
+
+    @media(max-width:576px){
 
         .dev-card{
-            max-width:500px;
-            border:none;
-            border-radius:20px;
+            padding:35px 25px;
         }
-    </style>
+
+        h1{
+            font-size:28px;
+        }
+
+        p{
+            font-size:14px;
+        }
+    }
+
+</style>
 </head>
 <body>
 
-    <div class="card shadow-lg dev-card p-4 text-center">
-        <div class="card-body">
-            
-            <h1 class="mb-3">🚧 Under Development</h1>
+<div class="circle c1"></div>
+<div class="circle c2"></div>
+<div class="circle c3"></div>
 
-            <div class="alert alert-warning">
-                This system is currently under development.
-                Please check back later.
-            </div>
+<div class="dev-card text-center">
 
-            <p class="text-muted">
-                We are working hard to bring new features soon.
-            </p>
+    <span class="badge-dev">
+        🚀 Work in Progress
+    </span>
 
-            <button class="btn btn-primary">
-                Coming Soon
-            </button>
-
-        </div>
+    <div class="icon-box">
+        <i class="bi bi-tools"></i>
     </div>
+
+    <h1>Under Development</h1>
+
+    <p class="mb-4 opacity-75">
+        We’re building something amazing for you.
+        Our team is working hard to deliver the best experience.
+    </p>
+
+    <div class="alert alert-warning border-0 rounded-4">
+        <strong>Notice:</strong>
+        This page is currently unavailable while development is in progress.
+    </div>
+
+    <button class="btn btn-light btn-custom mt-3">
+        <i class="bi bi-clock-history"></i>
+        Coming Soon
+    </button>
+
+</div>
 
 </body>
 </html>
